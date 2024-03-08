@@ -52,7 +52,7 @@ class SpeechToText extends Controller
             $request = Helper::postData($url,$data,$headers);
             Log::Debug($request);
             $data = json_decode($request,true);
-        
+            $target_dir->deleteWhenDestroyed();
             return $data;
         } else {
             echo "No file was uploaded.";
